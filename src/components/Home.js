@@ -17,8 +17,10 @@ export const Home = () => {
             <th>Age</th>
             <th>Class</th>
             <th>Program</th>
+            <th></th>
+            <th></th>
           </tr>
-          
+          </thead>
             {
               array.map((item) => {
                 return (
@@ -28,13 +30,15 @@ export const Home = () => {
                       <td>{item.age}</td>
                       <td>{item.class}</td>
                       <td>{item.program}</td>
+                      <td><Link to='/edit'><Button variant='info'>Edit</Button></Link></td>
+                      <td><Link><Button variant='danger'>Delete</Button></Link></td>
                     </tr>
                   </tbody>
                 )
               })
             }
           
-        </thead>
+        
        </Table>
        <Link className="d-grid gap-2 buttonLink" to='/create'>
             <Button variant='warning' size='lg'>Create</Button>
