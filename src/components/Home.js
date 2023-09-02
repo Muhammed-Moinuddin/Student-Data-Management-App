@@ -7,11 +7,35 @@ import array from './Array.js';
 
 
 export const Home = () => {
+
+  let text = '"No Data Found" Kindly enter some data'
+
+  let history = useNavigate();
+
+  function setId(id, name, age, classes, program){
+    localStorage.setItem('id', id);
+    localStorage.setItem('name', name);
+    localStorage.setItem('age', age);
+    localStorage.setItem('class', classes);
+    localStorage.setItem('program', program);
+  }
+
+  function deleted(id){
+
+    var index = array.map((e) => e.id).indexOf(id);
+
+    array.splice(index, 1)
+
+    history('/')
+  }
+
   return (
     <div className='main-div'>
       <h1 className='heading'>Student Data Management System</h1>
       <Table striped bordered hover>
-        <thead>
+        {
+          array.length > 0 ?
+          <thead>
           <tr>
             <th>Name</th>
             <th>Age</th>
@@ -20,27 +44,29 @@ export const Home = () => {
             <th></th>
             <th></th>
           </tr>
-          </thead>
-            {
-              array.map((item) => {
-                return (
-                  <tbody>
-                    <tr>
-                      <td>{item.name}</td>
-                      <td>{item.age}</td>
-                      <td>{item.class}</td>
-                      <td>{item.program}</td>
-                      <td><Link to='/edit'><Button variant='info'>Edit</Button></Link></td>
-                      <td><Link><Button variant='danger'>Delete</Button></Link></td>
-                    </tr>
-                  </tbody>
-                )
-              })
-            }
-          
+          </thead>  : text
+          }
+          {  
+            array.map((item) => {
+              return (
+                <tbody>
+                  <tr>
+                    <td>{item.name}</td>
+                    <td>{item.age}</td>
+                    <td>{item.class}</td>
+                    <td>{item.program}</td>
+                    <td><Link to='/edit'><Button onClick={(e) => setId(item.id,item.name, item.age, item.class, item.program)} variant='info'>Edit</Button></Link></td>
+                    <td><Link><Button onClick={e => deleted(item.id)} variant='danger'>Delete</Button></Link></td>
+                  </tr>
+                </tbody>
+                
+              )
+            })
+          }
+          </Table>
         
-       </Table>
-       <Link className="d-grid gap-2 buttonLink" to='/create'>
+       
+       <Link className="d-grid gap-2 pt-2 buttonLink" to='/create'>
             <Button variant='warning' size='lg'>Create</Button>
        </Link>
     </div>

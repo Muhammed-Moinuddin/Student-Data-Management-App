@@ -25,9 +25,9 @@ export const Edit = () => {
                 <Form.Group controlId='formBasicProgram' className='mb-3'>
                     <Form.Control type='number' placeholder='Enter Program' size="lg"></Form.Control>
                 </Form.Group>
-                <Button variant="primary" type='submit' size="lg">Submit</Button>
+                <Button variant="primary" type='submit' size="lg">Update</Button>
                 <Link className="d-grid gap-2" to='/' style={{ textDecoration: 'none' }}>
-                  <Button variant='info' size='lg'>Home</Button>
+                  <Button variant='warning' size='lg'>Home</Button>
                 </Link>
               </Form>
             </Col>
