@@ -3,7 +3,7 @@ import './Home.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import {Button, Table} from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import array from './Array.js';
+import array from './array.js';
 
 
 export const Home = () => {
