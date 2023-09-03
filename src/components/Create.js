@@ -37,7 +37,8 @@ export const Create = () => {
         <Container>
            <Row className="justify-content-md-center">
             <Col>
-              <Form className='d-grid gap-2' style={{margin:'15rem'}}>
+              <Form className='d-grid gap-2' style={{margin:'10rem'}}>
+              <h1 className='heading'>Create Student Data</h1>
                 <Form.Group controlId='formBasicName' className='mb-3'>
                     <Form.Control onChange={e => setName(e.target.value)} type='text' placeholder='Enter Name' size="lg"></Form.Control>
                 </Form.Group>
